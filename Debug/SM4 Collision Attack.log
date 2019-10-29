@@ -1,0 +1,24 @@
+﻿生成启动时间为 2019/10/29 15:24:29。
+     1>项目“c:\Users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\SM4 Collision Attack.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\SM4 Collision Attack.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         d:\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt sm4_test.c
+         sm4_test.c
+     1>c:\users\administrator\documents\visual studio 2010\projects\sm4 collision attack\sm4_test.c(22): warning C4101: “i”: 未引用的局部变量
+       Link:
+         d:\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SM4 Collision Attack.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.lib" /MACHINE:X86 Debug\collision_detect.obj
+         Debug\sm4.obj
+         Debug\sm4_test.obj
+         LINK : 没有找到 c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.exe 或上一个增量链接没有生成它；正在执行完全链接
+         SM4 Collision Attack.vcxproj -> c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\Debug\SM4 Collision Attack.exe;#1" /manifest "Debug\SM4 Collision Attack.exe.intermediate.manifest"
+       FinalizeBuildStatus:
+         正在删除文件“Debug\SM4 Collision Attack.unsuccessfulbuild”。
+         正在对“Debug\SM4 Collision Attack.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“c:\Users\administrator\documents\visual studio 2010\Projects\SM4 Collision Attack\SM4 Collision Attack.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.33
