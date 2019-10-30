@@ -24,10 +24,18 @@
     <ClCompile Include="collision_detect.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="123.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sm4.h">
       <Filter>头文件</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="s_output.txt">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,3 +1,4 @@
+#if 0
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 #include "sm4.h"
@@ -71,13 +72,6 @@ unsigned long sm4_T(unsigned long input)
 
 	//tao函数
 	ULONG2UCHAR(input, a);//a[0]放input的高8位，a[3]放input的低8位
-	////////////////////////////////////////////////////
-	//for(i = 0; i < 4; ++i)
-	//{
-	//	printf("%02x ", a[i]);
-	//}
-	//printf("\n");
-	////////////////////////////////////////////////////
 	b[0] = S_Box(a[0]);//调用S盒函数
 	b[1] = S_Box(a[1]);
 	b[2] = S_Box(a[2]);
@@ -149,26 +143,26 @@ void sm4_setKey(unsigned long rk[32], unsigned char key[16])//求轮密钥
 }
 
 //加解密过程
-//void sm4_round(unsigned long rk[32], //传入轮密钥
-//				unsigned char input[16], //传入加密的明文或者解密的密文
-//				unsigned char output[32]) //放加密得到的密文或解密得到的明文
-//{
-//	unsigned long i = 0;
-//	unsigned long buf[36];//用来存每一轮的输出结果
-//
-//	UCHAR2ULONG(buf[0], input);//把input的前4个字节放入buf[0]
-//	UCHAR2ULONG(buf[1], input + 4);
-//	UCHAR2ULONG(buf[2], input + 8);
-//	UCHAR2ULONG(buf[3], input + 12);
-//	for (i = 0; i < 32; i++)//进入32轮轮函数
-//	{
-//		buf[i + 4] = sm4_F(buf[i], buf[i + 1], buf[i + 2], buf[i + 3], rk[i]);
-//	}
-//	ULONG2UCHAR(buf[35], output);
-//	ULONG2UCHAR(buf[34], output + 4);
-//	ULONG2UCHAR(buf[33], output + 8);
-//	ULONG2UCHAR(buf[32], output + 12);
-//}
+void sm4_round(unsigned long rk[32], //传入轮密钥
+				unsigned char input[16], //传入加密的明文或者解密的密文
+				unsigned char output[32]) //放加密得到的密文或解密得到的明文
+{
+	unsigned long i = 0;
+	unsigned long buf[36];//用来存每一轮的输出结果
+
+	UCHAR2ULONG(buf[0], input);//把input的前4个字节放入buf[0]
+	UCHAR2ULONG(buf[1], input + 4);
+	UCHAR2ULONG(buf[2], input + 8);
+	UCHAR2ULONG(buf[3], input + 12);
+	for (i = 0; i < 32; i++)//进入32轮轮函数
+	{
+		buf[i + 4] = sm4_F(buf[i], buf[i + 1], buf[i + 2], buf[i + 3], rk[i]);
+	}
+	ULONG2UCHAR(buf[35], output);
+	ULONG2UCHAR(buf[34], output + 4);
+	ULONG2UCHAR(buf[33], output + 8);
+	ULONG2UCHAR(buf[32], output + 12);
+}
 
 void sm4_setKey_encrypt(sm4_context *context, unsigned char key[16])//设置加密情形
 {
@@ -190,54 +184,22 @@ void sm4_setKey_decrypt(sm4_context *context, unsigned char key[16])//设置解密情
 	}
 }
 
-//void sm4_crypt(sm4_context *context,
-//				int mode,
-//				int length,//输入的明文的字节数
-//				unsigned char *input,
-//				unsigned char *output)
-//{
-//	while (length > 0)//每次加密16个字节
-//	{
-//		sm4_round(context->rk, input, output);//加密过程
-//		input += 16;
-//		output += 16;
-//		length -= 16;
-//	}
-//}
-
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////
-
-
-//加解密过程
-void sm4_round(unsigned long rk[32], 
-				unsigned char input[16], 
-				unsigned char output[32])
-{
-	unsigned long i = 0;
-	unsigned long buf[36];
-
-	UCHAR2ULONG(buf[0], input);
-	UCHAR2ULONG(buf[1], input + 4);
-	UCHAR2ULONG(buf[2], input + 8);
-	UCHAR2ULONG(buf[3], input + 12);
-	for (i = 0; i < 1; i++)
-	{
-		buf[i + 4] = sm4_F(buf[i], buf[i + 1], buf[i + 2], buf[i + 3], rk[i]);
-	}
-	ULONG2UCHAR(buf[35], output);
-	ULONG2UCHAR(buf[34], output + 4);
-	ULONG2UCHAR(buf[33], output + 8);
-	ULONG2UCHAR(buf[32], output + 12);
-}
-
-
 void sm4_crypt(sm4_context *context,
 				int mode,
-				int length,
+				int length,//输入的明文的字节数
 				unsigned char *input,
 				unsigned char *output)
 {
-		sm4_round(context->rk, input, output);
+	while (length > 0)//每次加密16个字节
+	{
+		sm4_round(context->rk, input, output);//加密过程
+		input += 16;
+		output += 16;
+		length -= 16;
+	}
 }
+
+
+
+#endif
+

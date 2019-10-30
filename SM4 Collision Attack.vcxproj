@@ -61,12 +61,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="123.cpp" />
     <ClCompile Include="collision_detect.c" />
     <ClCompile Include="sm4.c" />
     <ClCompile Include="sm4_test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sm4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="s_output.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

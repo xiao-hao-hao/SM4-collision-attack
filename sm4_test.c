@@ -1,3 +1,4 @@
+#if 0
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h>
 #include "sm4.h"
@@ -15,6 +16,7 @@ int main()
 	//unsigned char input[16] = { 0x36,0x33,0xf1,0xf7,0x25,0x50,0x55,0x66,0x71,0x73,0xbb,0xdd,0xdf,0xee,0x28,0x88 }; //7a ec 40 ca
 	//unsigned char input[16] = { 0x31,0x22,0x66,0xaa,0xa5,0xec,0xe2,0xca,0x53,0x79,0x33,0x58,0x79,0x99,0x11,0x61 }; //7e 2d 46 0a
 	//unsigned char input[16] = { 0x55,0x24,0x73,0xa2,0xaa,0x21,0xa1,0x51,0x65,0x24,0x98,0x92,0x71,0x53,0xe3,0xf2 }; //4f 77 5c c8
+	unsigned char input[16] = { 1,35,69,103,137,171,205,239,254,220,186,152,118,84,50,16 };
 	
 	unsigned char output[16];
 	sm4_context ctx;
@@ -23,9 +25,9 @@ int main()
 	//encrypt standard testing vector    
 	sm4_setKey_encrypt(&ctx, key);//设置加密情景
 	sm4_crypt(&ctx, 1, 16, input, output);//1代表加密，input为输入的明文，output用来存放密文
-	//for (i = 0; i<16; i++)
-	//	printf("%02x ", output[i]);
-	//printf("\n");
+	for (i = 0; i<16; i++)
+		printf("%02x ", output[i]);
+	printf("\n");
 
 	//decrypt testing    
 	//sm4_setKey_decrypt(&ctx, key);
@@ -36,3 +38,5 @@ int main()
 
 	return 0;
 }
+
+#endif
